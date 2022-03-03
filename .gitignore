@@ -5,9 +5,7 @@
 .idea/
 
 
- *.iml
-# *.ipr
-
+/**/*.iml
 # CMake
 cmake-build-*/
 
