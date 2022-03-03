@@ -1,6 +1,6 @@
 package com.github.joaoh4547.multiton;
 
-import java.awt.*;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,14 +11,14 @@ public class Theme {
 
     private static final Map<String,Theme>  themes = new HashMap<>();
 
-    private static final String SKY = "Sky";
-    private static final String FIRE = "Fire";
+    public static final String SKY = "Sky";
+    public static final String FIRE = "Fire";
 
     static {
         Theme theme1 = new Theme();
         theme1.setName(Theme.SKY);
         theme1.setBackgroundColor(Color.BLUE);
-        theme1.setFontColor(Color.black);
+        theme1.setFontColor(Color.BLACK);
 
         Theme theme2 = new Theme();
         theme2.setName(Theme.FIRE);
@@ -33,7 +33,7 @@ public class Theme {
 
     }
 
-    public Theme getInstance(String name){
+    public static Theme getInstance(String name){
         return themes.get(name);
     }
 
