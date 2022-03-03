@@ -5,7 +5,7 @@ import com.github.joaoh4547.simple_factory.entities.Product;
 import java.util.Arrays;
 import java.util.Collection;
 
-public abstract class ProductListExporter implements IProductListExporter {
+abstract class ProductListExporter implements IProductListExporter {
 
     protected static final Collection<String> COLUMNS_TITLES = Arrays.asList("Id", "Descrição", "Preço");
 
@@ -16,12 +16,15 @@ public abstract class ProductListExporter implements IProductListExporter {
         builder.append(openTable());
         builder.append(generateLines(COLUMNS_TITLES));
         builder.append(closeTitlesLine());
-        generateProductsLines(products,builder);
+        generateProductsLines(products, builder);
         builder.append(closeTable());
+
+
         return builder.toString();
+
     }
 
-    private void generateProductsLines(Collection<Product> products,StringBuilder builder) {
+    private void generateProductsLines(Collection<Product> products, StringBuilder builder) {
         for (Product product : products) {
 
             Collection<String> values = Arrays.asList(

@@ -2,7 +2,7 @@ package com.github.joaoh4547.simple_factory.exporters;
 
 import java.util.Arrays;
 
-public class ProductListExporterMarkDown extends ProductListExporter {
+class ProductListExporterMarkDown extends ProductListExporter {
     @Override
     public String openTable() {
         return "";
@@ -30,7 +30,7 @@ public class ProductListExporterMarkDown extends ProductListExporter {
 
     @Override
     public String openColum(String value) {
-        return String.format("| %s",value);
+        return String.format("| %s", value);
     }
 
     @Override

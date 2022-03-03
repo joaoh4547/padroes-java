@@ -1,38 +1,38 @@
 package com.github.joaoh4547.simple_factory.exporters;
 
-public class ProductListExporterHtml extends ProductListExporter{
+class ProductListExporterHtml extends ProductListExporter {
     @Override
     public String openTable() {
-        return "";
+        return "<table>\n";
     }
 
     @Override
     public String closeTable() {
-        return null;
+        return "</table>";
     }
 
     @Override
     public String openLine() {
-        return null;
+        return "\t<tr>\n\t\t";
     }
 
     @Override
     public String closeLine() {
-        return null;
+        return "</tr>\n";
     }
 
     @Override
     public String closeTitlesLine() {
-        return null;
+        return "";
     }
 
     @Override
     public String openColum(String value) {
-        return null;
+        return String.format("<td>%s", value);
     }
 
     @Override
     public String closeColumn() {
-        return null;
+        return "</td>";
     }
 }
