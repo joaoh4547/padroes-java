@@ -54,7 +54,7 @@ public class Campaign implements Prototype<Campaign>{
         StringBuilder builder =  new StringBuilder();
         builder.append("-----------------\n");
         builder.append("Nome da campanha: ").append(this.name).append("\n");
-        builder.append("Vencimento: ").append(simpleDateFormat.format(this.dueDate)).append("\n");
+        builder.append("Vencimento: ").append(simpleDateFormat.format(this.dueDate.getTime())).append("\n");
         builder.append("Palavras chave: \n");
 
         for (String keyWord: this.keyWords){
