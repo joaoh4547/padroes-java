@@ -20,7 +20,7 @@ public class ProductListExporterMarkDown extends ProductListExporter {
 
     @Override
     public String closeLine() {
-        return "";
+        return "\n";
     }
 
     @Override

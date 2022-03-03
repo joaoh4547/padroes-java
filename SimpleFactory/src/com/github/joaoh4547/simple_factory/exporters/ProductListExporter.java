@@ -15,12 +15,13 @@ public abstract class ProductListExporter implements IProductListExporter {
 
         builder.append(openTable());
         builder.append(generateLines(COLUMNS_TITLES));
-        generateProductsLines(products);
+        builder.append(closeTitlesLine());
+        generateProductsLines(products,builder);
         builder.append(closeTable());
         return builder.toString();
     }
 
-    private void generateProductsLines(Collection<Product> products) {
+    private void generateProductsLines(Collection<Product> products,StringBuilder builder) {
         for (Product product : products) {
 
             Collection<String> values = Arrays.asList(
@@ -28,7 +29,7 @@ public abstract class ProductListExporter implements IProductListExporter {
                     product.getDescription(),
                     product.getValue().toString()
             );
-            generateLines(values);
+            builder.append(generateLines(values));
         }
     }
 
