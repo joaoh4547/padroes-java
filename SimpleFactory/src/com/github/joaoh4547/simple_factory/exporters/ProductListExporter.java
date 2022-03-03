@@ -14,13 +14,13 @@ public abstract class ProductListExporter implements IProductListExporter {
         StringBuilder builder = new StringBuilder();
 
         builder.append(openTable());
-        generateLines(COLUMNS_TITLES, builder);
-        generateProductsLines(products, builder);
+        builder.append(generateLines(COLUMNS_TITLES));
+        generateProductsLines(products);
         builder.append(closeTable());
         return builder.toString();
     }
 
-    private void generateProductsLines(Collection<Product> products, StringBuilder builder) {
+    private void generateProductsLines(Collection<Product> products) {
         for (Product product : products) {
 
             Collection<String> values = Arrays.asList(
@@ -28,16 +28,18 @@ public abstract class ProductListExporter implements IProductListExporter {
                     product.getDescription(),
                     product.getValue().toString()
             );
-            generateLines(values, builder);
+            generateLines(values);
         }
     }
 
-    private void generateLines(Collection<String> values, StringBuilder builder) {
+    protected String generateLines(Collection<String> values) {
+        StringBuilder builder = new StringBuilder();
         builder.append(openLine());
         for (String title : values) {
             builder.append(openColum(title));
             builder.append(closeColumn());
         }
         builder.append(closeLine());
+        return builder.toString();
     }
 }
